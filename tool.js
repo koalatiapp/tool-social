@@ -1,16 +1,8 @@
 'use strict';
 
-class Tool {
-    /**
-     * Creates and initializes an instance of your tool
-     * Puppeteer's Page class documentation: https://pptr.dev/#?product=Puppeteer&version=main&show=api-class-page
-     *
-     * @param {Object} page The current Puppeteer page's instance
-     * @param {Object} devices A list of devices to be used with page.emulate(). This is a reference to puppeteer.devices.
-     */
-    constructor(page, devices) {
+export class Tool {
+    constructor({ page }) {
         this.page = page;
-        this.devices = devices;
     }
 
     async run() {
