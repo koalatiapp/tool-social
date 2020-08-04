@@ -1,6 +1,6 @@
 {
   "name": "@koalati/tool-social",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Koalati tool that checks and validates a page's social sharing meta tags",
   "main": "tool.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/koalatiapp/tool-social#readme",
   "devDependencies": {
-    "@koalati/dev-tool-tester": "^1.0.4"
+    "@koalati/dev-tool-tester": "^1.0.5"
   }
 }
