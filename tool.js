@@ -1,6 +1,6 @@
 'use strict';
 
-export class Tool {
+class Tool {
     constructor({ page }) {
         this.page = page;
     }
