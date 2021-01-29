@@ -25,5 +25,8 @@
   "homepage": "https://github.com/koalatiapp/tool-social#readme",
   "devDependencies": {
     "@koalati/dev-tool-tester": "^1.0.5"
+  },
+  "dependencies": {
+    "result-builder": "^1.1.3"
   }
 }
