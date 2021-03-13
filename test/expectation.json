@@ -1,0 +1,64 @@
+[
+	{
+		"uniqueName": "facebook",
+		"title": "Facebook sharing optimization",
+		"description": "Checks if your pages have all of the essential meta tags to look good when it is shared on Facebook.",
+		"weight": 0.5,
+		"score": 1,
+		"recommendations": [
+			"Consider reducing the length of your `og:description` to 55 characters or under for better cross-platform visibility."
+		],
+		"snippets": [],
+		"table": [
+			[
+				"Meta tag",
+				"Value found on your page"
+			],
+			[
+				"og:description",
+				"This is a sample meta description that is added for test purposes."
+			],
+			[
+				"og:image",
+				"http://sometestdomain.com/image.jpg"
+			],
+			[
+				"og:title",
+				"test page"
+			]
+		]
+	},
+	{
+		"uniqueName": "twitter",
+		"title": "Twitter sharing optimization",
+		"description": "Checks if your pages have all of the essential meta tags to look good when it is shared on Twitter.",
+		"weight": 0.5,
+		"score": 0,
+		"recommendations": [
+			"Add a valid `twitter:card` meta tag to your page. For more information, visit [Twitter's Getting Started with Cards Guide](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)"
+		],
+		"snippets": [],
+		"table": [
+			[
+				"Meta tag",
+				"Value found on your page"
+			],
+			[
+				"twitter:card",
+				""
+			],
+			[
+				"twitter:description",
+				"This is a sample meta description that is added for test purposes."
+			],
+			[
+				"twitter:image",
+				"http://sometestdomain.com/image.jpg"
+			],
+			[
+				"twitter:title",
+				"test page"
+			]
+		]
+	}
+  ]
