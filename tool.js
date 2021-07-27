@@ -1,6 +1,6 @@
 "use strict";
 
-const ResultBuilder = require("result-builder");
+const ResultBuilder = require("@koalati/result-builder");
 
 class Tool {
 	constructor({ page }) {
@@ -28,8 +28,8 @@ class Tool {
 		const result = this.builder.newTest("facebook");
 		result.setTitle("Facebook sharing optimization")
 			.setDescription("Checks if your pages have all of the essential meta tags to look good when it is shared on Facebook.")
-			.setWeight(.5)
-			.addTableRows(this._tables.facebook);
+			.setWeight(.5);
+		this._tables.facebook.forEach(row => result.addTableRow(row));
 
 		if (!this._meta("og:title")) {
 			score -= SCORE_DEDUCTION_MAJOR;
@@ -71,8 +71,8 @@ class Tool {
 		const result = this.builder.newTest("twitter");
 		result.setTitle("Twitter sharing optimization")
 			.setDescription("Checks if your pages have all of the essential meta tags to look good when it is shared on Twitter.")
-			.setWeight(.5)
-			.addTableRows(this._tables.twitter);
+			.setWeight(.5);
+		this._tables.twitter.forEach(row => result.addTableRow(row));
 
 		if (["summary", "summary_large_image", "app", "player"].indexOf(this._meta("twitter:card")) == -1) {
 			score -= SCORE_DEDUCTION_CRUCIAL;
