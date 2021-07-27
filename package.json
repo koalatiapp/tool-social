@@ -4,7 +4,7 @@
   "description": "Koalati tool that checks and validates a page's social sharing meta tags",
   "main": "tool.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --config=test/mocharc.json",
     "debug": "npx @koalati/dev-tool-tester --url=\"https://koalati.com/\""
   },
   "repository": {
