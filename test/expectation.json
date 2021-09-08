@@ -6,7 +6,11 @@
 		"weight": 0.5,
 		"score": 1,
 		"recommendations": [
-			["Consider reducing the length of your `og:description` to 55 characters or under for better cross-platform visibility.", {}]
+			[
+				"Consider reducing the length of your `og:description` to 55 characters or under for better cross-platform visibility.",
+				{},
+				"OPTIMIZATION"
+			]
 		],
 		"snippets": [],
 		"table": [
@@ -35,7 +39,11 @@
 		"weight": 0.5,
 		"score": 0,
 		"recommendations": [
-			["Add a valid `twitter:card` meta tag to your page. For more information, visit [Twitter's Getting Started with Cards Guide](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)", {}]
+			[
+				"Add a valid `twitter:card` meta tag to your page. For more information, visit [Twitter's Getting Started with Cards Guide](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)",
+				{},
+				"ESSENTIAL"
+			]
 		],
 		"snippets": [],
 		"table": [

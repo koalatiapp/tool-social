@@ -1,6 +1,6 @@
 {
   "name": "@koalati/tool-social",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Koalati tool that checks and validates a page's social sharing meta tags",
   "main": "tool.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "url": "git+https://github.com/koalatiapp/tool-social.git"
   },
   "keywords": [
-    "koalati"
+    "koalati",
+    "koalati-tool"
   ],
   "author": {
     "name": "Koalati",
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/koalatiapp/tool-social#readme",
   "dependencies": {
-    "@koalati/result-builder": "^1.3.1"
+    "@koalati/result-builder": "^1.4.0"
   },
   "devDependencies": {
     "@koalati/dev-tool-tester": "^2.0.3",

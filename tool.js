@@ -1,6 +1,6 @@
 "use strict";
 
-const ResultBuilder = require("@koalati/result-builder");
+const { ResultBuilder, priorities } = require("@koalati/result-builder");
 
 class Tool {
 	constructor({ page }) {
@@ -33,26 +33,26 @@ class Tool {
 
 		if (!this._meta("og:title")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add an `og:title` meta tag to your page.");
+			result.addRecommendation("Add an `og:title` meta tag to your page.", {}, priorities.ESSENTIAL);
 		} else if (this._meta("og:title").length > 55) {
 			score -= SCORE_DEDUCTION_MINOR;
-			result.addRecommendation("Reduce the length of your `og:title` to 55 characters or under for better cross-platform visibility.");
+			result.addRecommendation("Reduce the length of your `og:title` to 55 characters or under for better cross-platform visibility.", {}, priorities.OPTIMIZATION);
 		}
 
 		if (!this._meta("og:description")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add a meta description to your page.");
+			result.addRecommendation("Add a meta description to your page.", {}, priorities.ESSENTIAL);
 		} else if (this._meta("og:description").length > 200) {
 			score -= SCORE_DEDUCTION_MINOR;
-			result.addRecommendation("Reduce the length of your `og:description` to 200 characters or under. A length of 55 characters or under is recommended for better cross-platform visibility.");
+			result.addRecommendation("Reduce the length of your `og:description` to 200 characters or under. A length of 55 characters or under is recommended for better cross-platform visibility.", {}, priorities.OPTIMIZATION);
 		} else if (this._meta("og:description").length > 55) {
 			score -= SCORE_DEDUCTION_CONSIDER;
-			result.addRecommendation("Consider reducing the length of your `og:description` to 55 characters or under for better cross-platform visibility.");
+			result.addRecommendation("Consider reducing the length of your `og:description` to 55 characters or under for better cross-platform visibility.", {}, priorities.OPTIMIZATION);
 		}
 
 		if (!this._meta("og:image")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add an `og:image` meta tag to your page. For more information, visit [Facebook's Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)");
+			result.addRecommendation("Add an `og:image` meta tag to your page. For more information, visit [Facebook's Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)", {}, priorities.ESSENTIAL);
 		}
 
 		if (score < 0) {
@@ -76,28 +76,32 @@ class Tool {
 
 		if (["summary", "summary_large_image", "app", "player"].indexOf(this._meta("twitter:card")) == -1) {
 			score -= SCORE_DEDUCTION_CRUCIAL;
-			result.addRecommendation("Add a valid `twitter:card` meta tag to your page. For more information, visit [Twitter's Getting Started with Cards Guide](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)");
+			result.addRecommendation(
+				"Add a valid `twitter:card` meta tag to your page. For more information, visit [Twitter's Getting Started with Cards Guide](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)",
+				{},
+				priorities.ESSENTIAL
+			);
 		}
 
 		if (!this._meta("twitter:title")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add a `twitter:title` meta tag to your page.");
+			result.addRecommendation("Add a `twitter:title` meta tag to your page.", {}, priorities.OPTIMIZATION);
 		} else if (this._meta("twitter:title").length > 70) {
 			score -= SCORE_DEDUCTION_MINOR;
-			result.addRecommendation("Reduce the length of your `twitter:title` to 70 characters or under.");
+			result.addRecommendation("Reduce the length of your `twitter:title` to 70 characters or under.", {}, priorities.OPTIMIZATION);
 		}
 
 		if (!this._meta("twitter:description")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add a meta description to your page.");
+			result.addRecommendation("Add a meta description to your page.", {}, priorities.OPTIMIZATION);
 		} else if (this._meta("twitter:description").length > 200) {
 			score -= SCORE_DEDUCTION_MINOR;
-			result.addRecommendation("Reduce the length of your `twitter:description` to 200 characters or under.");
+			result.addRecommendation("Reduce the length of your `twitter:description` to 200 characters or under.", {}, priorities.OPTIMIZATION);
 		}
 
 		if (!this._meta("twitter:image")) {
 			score -= SCORE_DEDUCTION_MAJOR;
-			result.addRecommendation("Add a `twitter:image` meta tag to your page. For more information, visit [Facebook's Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)");
+			result.addRecommendation("Add a `twitter:image` meta tag to your page. For more information, visit [Facebook's Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)", {}, priorities.OPTIMIZATION);
 		}
 
 		if (this._meta("twitter:card") == "player") {
@@ -105,7 +109,11 @@ class Tool {
 
 			if (!playerUrl || !/^(?:https:\/\/|\/\/).*/.test(playerUrl)) {
 				score -= SCORE_DEDUCTION_CRUCIAL;
-				result.addRecommendation("Add a valid `twitter:player` meta tag to your page. It is mandatory when using the player card. For more information, visit [Twitter's Player Card Documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card)");
+				result.addRecommendation(
+					"Add a valid `twitter:player` meta tag to your page. It is mandatory when using the player card. For more information, visit [Twitter's Player Card Documentation](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card)",
+					{},
+					priorities.ISSUE
+				);
 			}
 		}
 
